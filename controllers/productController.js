@@ -1,9 +1,10 @@
 import db from '../models/index.js';
 
-const {products} = db;
+const {products, reviews} = db;
 // Create main Model 
 
 const Product = products;
+const Review = reviews;
 
 // main work 
 
@@ -118,5 +119,26 @@ export const getPublishedProduct = async (req, res) => {
     }); 
 
 };
+
+};
+
+// 7 Get all products reviews 
+
+export const getAllProductReviews = async(req, res) => { 
+
+    try {
+        const data = await Product.findAll({
+            include: [{
+                model: Review,
+                as: "review"
+            }]
+        });
+        res.status(200).send(data)
+    } catch (error) {
+        console.error(error);
+        res.status(404).json({
+        message: "Something unexpected happen"
+    }); 
+    }
 
 };

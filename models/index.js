@@ -42,4 +42,16 @@ then(()=> {
     console.log('yes re-sync done!');
 })  
 
+// One to many relationship
+
+db.products.hasMany(db.reviews, {
+    foreignKey: "product_id",
+    as: "review"
+});
+
+db.reviews.belongsTo(db.products,{
+    foreignKey: "product_id",
+    as: 'product'
+});
+
 export default db;

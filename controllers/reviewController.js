@@ -13,10 +13,10 @@ const Review = reviews;
 
 export const addReview = async (req, res) => { 
 
-    const {rating, description } = req.body;
+    const {rating, description, product_id } = req.body;
 
     try {
-        const review = await Review.create({rating, description});
+        const review = await Review.create({rating, description, product_id});
         res.status(201).send(review);
     } catch (error) {
         console.error(error);

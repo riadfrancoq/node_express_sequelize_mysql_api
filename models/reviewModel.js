@@ -4,7 +4,7 @@ function ReviewModel(sequelize, DataTypes) {
     const Review = sequelize.define('review', {
 
         rating: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         description: {
