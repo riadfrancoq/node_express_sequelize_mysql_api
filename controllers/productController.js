@@ -1,10 +1,9 @@
 import db from '../models/index.js';
 
-const {products, reviews} = db;
+const {products} = db;
 // Create main Model 
 
 const Product = products;
-const Review = reviews;
 
 // main work 
 
